@@ -1,0 +1,93 @@
+<div class="text-with-video">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="twv-left">
+                    <div class="twv-left-bg">
+                        <img src="{{section.settings.text_bg | img_url:'master'}}" alt="">
+                    </div>
+                    <div class="twv-left-content">
+                        <h2>{{section.settings.title}}</h2>
+                        <p>{{section.settings.description}}</p>
+                        {% if section.settings.link != blank %}
+                            <a href="{{section.settings.link}}"><button>More Details</button></a>
+                        {% endif %}
+                    </div>                   
+                </div>
+            </div>
+            <div class="col my-auto">
+                <div class="twv-right">
+                    <div class="yt-video">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{section.settings.video_id}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <h2>{{section.settings.video_title}}</h2>
+                    <p>{{section.settings.video_desc}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name":{
+        "en":"Text with video"
+    },
+    "settings": [
+        {
+            "type": "text", 
+            "id"  :"title",
+            "label":"Text with video section title",
+            "default": "Spring Girl"
+        },
+        {
+            "type": "textarea", 
+            "id"  :"description",
+            "label":"Description ",
+            "default": "Girl Lookbook 2015"
+        },
+        {
+            "type": "url", 
+            "id"  :"link",
+            "label":"Left Text link"
+        },
+        {
+            "type": "image_picker", 
+            "id"  :"text_bg",
+            "label":"Upload Image "
+        },
+        {
+            "type": "text", 
+            "id": "video_title", 
+            "label": "Video title",
+            "default": "Spring grils video campaign 2015"
+        },
+        {
+            "type": "text", 
+            "id": "video_id", 
+            "label": "Youtube Video id",
+            "default": "Q-FVi4ViU_Q"
+        },
+        {
+            "type": "textarea", 
+            "id": "video_desc", 
+            "label": "Video description",
+            "default": "Models: Alicia, Emily, Heather & Molly"
+        }
+        
+    ],
+    "presets":[
+        {
+            "name":{
+                "en": "Text with video"
+            },
+            "category": {
+                "en": "Video"
+            },
+            "settings": {
+                "title": "Left text and Right video"
+            }
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,126 @@
+<footer>
+    <div class="footer-widgets-area section-padding">
+        <div class="row">
+            {%- for block in section.blocks -%}
+                <div class="col">
+                    <h2>{{block.settings.title}}</h2>
+
+                    {%- case block.type -%}
+                        {% when 'link_list' %}
+                        {% assign footer_links = block.settings.menu %}
+                        <ul class="footer-nav">
+                            {% for link in linklists[footer_links].links %}
+                            <li><a href="{{link.url}}">{{link.title}}</a></li>
+                            {% endfor %}
+                        </ul>
+
+                        {% when 'text' %}
+                        {% if block.settings.logo != blank %}
+                            <div class="text-block-img">
+                                <img src="{{block.settings.logo | img_url: 'thumbnail'}}" alt="">
+                            </div>
+                        {% endif %}
+                        <p>{{block.settings.content}}</p>
+                        
+                            
+                            
+                    {%- endcase -%}
+
+                    
+                </div>
+            {%- endfor -%}
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="footer-bar text-white"  style="background-color:{{section.settings.footer_bg}}">
+                    <p style="color:{{section.settings.footer_color}}; font-size:{{section.settings.footer_text_size}}px">{{ section.settings.footer_copy }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% schema %}
+    {
+        "name" :{
+            "en"  : "Footer"
+        },
+        "max_blocks":4,
+        "settings":[
+            {
+                "type"  : "color", 
+                "id"    :"footer_bg",
+                "label" :"Footer Section Background color",
+                "default":"#000"
+            },
+            {
+                "type" : "text",
+                "id"   : "footer_copy", 
+                "label": {
+                    "en": "Footer copyright text"
+                }
+            }, 
+            {
+                "type" : "color", 
+                "id"   :"footer_color",
+                "label": "Copyright text color",
+                "default"  :"#fff"
+            },
+            {
+                "type": "range",
+                "id"  :"footer_text_size",
+                "label": "Set Copyright text font size",
+                "min" :13,
+                "max" : 35,
+                "step":1,
+                "unit":"px",
+                "default": 14
+            }
+        ],
+        "blocks":[
+            {
+                "type": "link_list",
+                "name": "Footer Menu", 
+                "settings": [
+                    {
+                        "type": "text",
+                        "id"   : "title",
+                        "label": "Title",
+                        "default": "Quick Links"
+                    },
+                    {
+                        "type": "link_list",
+                        "id": "menu",
+                        "label": "Select Menu"
+                    }
+                ]
+            },
+            {
+                "type": "text",
+                "name": "Text Block", 
+                "settings":[
+                    {
+                        "type": "image_picker", 
+                        "id" : "logo", 
+                        "label": "Add company logo"
+                    },
+                    {
+                        "type": "text",
+                        "id" :"title", 
+                        "label": "Text Block Title",
+                        "default": "About us"
+                    },
+                    {
+                        "type": "richtext",
+                        "id" : "content", 
+                        "label":"Content"
+                    }
+                ]
+            }
+            
+        ]
+    }
+
+{% endschema %}

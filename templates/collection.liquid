@@ -1,0 +1,45 @@
+{% paginate collection.products by 12 %}
+<section class="single-collection">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="collection-title text-center">
+          <h1>{{ collection.title }}</h1>
+          <h3>Total products on this collection: {{collection.all_products_count}}</h3>
+          
+          {% if collection.image %}
+            <div class="collection-bg" style="background-image:url({{collection.image | img_url: 'master'}})"></div>
+          {% endif %}
+          {% if collection.description %}
+            <div class="collection-desc">
+              {{collection.description}}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {% for product in collection.products %}
+        {% include 'product-card' %}
+        {% else %}
+          <div class="col">
+            <div class="alert alert-danger">
+              <p>No porduct found !!</p>
+            </div>
+          </div>
+
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+  <div class="pagination">
+    <div class="row">
+      <div class="col text-center">
+        {% if paginate.pages > 1 %}
+          {{ paginate | default_pagination }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endpaginate %}

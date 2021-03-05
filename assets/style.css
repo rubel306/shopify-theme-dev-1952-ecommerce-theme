@@ -1,0 +1,304 @@
+body{
+    color:#959595;
+    font-size: 14px;
+}
+a{
+    color: #000;
+}
+h1, h2, h3,h4,h5,h6{
+    color: #000;
+    font-weight: bold;
+}
+.section-padding{
+    padding: 50px 0px;
+}
+button {
+    border: 1px solid #ddd;
+    background: none;
+    text-transform: uppercase;
+    padding: 5px 15px;
+}
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.header-top {
+    color: #959595;
+    font-size: 13px;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 10px 0;
+}
+
+.header-top p {
+    margin-bottom: 0;
+}
+
+.user-menu, .header-right {text-align: right;}
+
+.user-menu a, .header-right a {
+    color: #959595;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0px 15px;
+    font-size: 14px;
+}
+
+img {
+    max-width: 100%;
+}
+
+.logo img {
+    max-width: 120px;
+    height: auto;
+}
+ul.nav {
+    justify-content: center;
+}
+
+.header-menu ul.nav a {
+    color: #000;
+    font-size: 14px;
+    display: inline-block;
+    padding: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+}
+.main-header {
+    padding: 20px 0px;
+}
+
+.main-header .row {
+    align-items: center;
+}
+.header-menu ul.nav li {
+    position: relative;
+}
+
+.header-menu ul.nav li ul.sub-menu {
+    position: absolute;
+    width: 250px;
+    background: #000;
+    transition: .3s;
+    padding: 0;
+    list-style: none;
+    visibility: hidden;
+    opacity: 0;
+    left: -100%;
+}
+
+.header-menu ul.nav li ul.sub-menu a {
+    color: #fff;
+}
+
+.header-menu ul.nav li:hover ul.sub-menu {
+    visibility: visible;
+    opacity: 1;
+    left: 0;
+    transition: .5s;
+    left: 0;
+}
+
+/*text with video section css */
+
+.twv-right h2{
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 30px;
+}
+.twv-left h2 {
+    font-size: 72px;
+    font-weight: 400;
+    max-width: 150px;
+}
+.twv-left {
+    position: relative;
+}
+
+twv-left {}
+
+.twv-left-content {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    z-index: 3;
+}
+
+.twv-left-bg img {
+    padding-left: 150px;
+    z-index: 1;
+    height: 630px;
+}
+.text-with-video {
+    padding: 50px 0px;
+}
+/*text with video section css end*/
+
+/* background with text section*/
+.bgwith-text-inner {
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 450px;
+    position: relative;
+}
+
+.bgwith-text-content {
+    position: absolute;
+    bottom: -100px;
+    text-align: center;
+    width: 100%;
+}
+
+.bgwith-text-content h2 {
+    font-size: 72px;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.bgwith-text {
+    padding-bottom: 120px;
+}
+
+.bgwith-text-content p {
+    color: #000;
+    font-size: 16px;
+}
+
+/* background with text section end*/
+
+/* Single collection page css start */
+
+.single-product-bg {height: 250px;background-size: cover;background-position: center;background-color: #ddd;margin-bottom: 15px;background-repeat: no-repeat;width: 100%;}
+
+.single-product-item h3 {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.single-product-item {
+    margin: 20px 0;
+}
+.pagination {
+    justify-content: center;
+}
+
+.pagination a, .pagination span.page.current {
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #ededed;
+    line-height: 40px;
+    font-size: 20px;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.pagination span.page.current {
+    border-color: #000;
+    color: #000;
+}
+.single-product-item {
+    margin: 0 15px;
+}
+.single-thumbs {
+    margin: 15px;
+}
+.single-product-purchase {
+    padding: 50px 0px;
+}
+
+.single-product-purchase #productSelect, .single-product-purchase input, .single-product-purchase button, button[type="submit"] {
+    border: 1px solid blue;
+    padding: 15px 30px;
+    display: inline-block;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    transition: .3s;
+}
+button[type="submit"]:hover{
+    background-color: blue;
+    color: #fff;
+}
+table tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+table th, table td {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 15px;
+}
+
+.cart table {
+    margin: 20px 0;
+    width: 100%;
+}
+
+.cart table thead {
+    width: 100%;
+}
+
+.cart table img {
+    max-width: 65px;
+}
+
+.cart table input[type="number"] {
+    border: 1px solid #efefef;
+    padding: 6px;
+}
+/* Single collection page css end */
+
+/* Login page css start  */
+
+.login-page {
+    padding: 50px 20%;
+}
+
+.login-form {
+    background: #ededed;
+    padding: 40px;
+    overflow: hidden;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+.login-form input {
+    display: block;
+    width: 100%;
+    border: 1px solid salmon;
+    background: transparent;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.login-form input[type="submit"] {
+    width: 120px;
+    padding: 10px 10px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.login-form input[type="submit"]:hover {
+    border-color: blue;
+}
+.forgat-pass {
+    margin-top: 50px;
+}
+
+.forgat-pass input[type="submit"] {
+    float: right;
+}
+
+/* Login page css end  */

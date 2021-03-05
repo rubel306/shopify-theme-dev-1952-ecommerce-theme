@@ -1,0 +1,116 @@
+<header id="site-header" class="site-header">
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col col-auto">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, commodi.</p>
+                </div>
+                <div class="col">
+                    <div class="user-menu text-right">
+                        {% if shop.customer_accounts_enabled %}
+                        {% if customer %}
+                          <a href="/account">account</a>
+                          {{ 'log out'  | customer_logout_link }}
+                        {% else %}
+                          {{ 'log in ' | customer_login_link }}
+                          {{ 'register' | customer_register_link }}
+                        {% endif %}
+                      {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="logo">
+                         <a href="/" class="logo-area">
+                             {% if  section.settings.logo %}
+                             <img src="{{section.settings.logo | img_url: 'thumbnai'}}" alt="">
+                                 
+                             {% else %}
+                                 <h2>{{shop.name}}</h2>
+                             
+                             {% endif %}
+                         </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="header-menu">
+                        <ul class="nav">
+                         {% for link in linklists.main-menu.links %}
+                             {% assign child_list_handle = link.title | handleize %}
+                             {% if linklists[child_list_handle].links != blank %}
+                             <li><a href="{{ link.url }}">{{ link.title }}</a>
+                             <ul class="sub-menu">{% for childlink in linklists[child_list_handle].links %}
+                                 <li><a href="{{ childlink.url }}">{{ childlink.title | escape }}</a></li>
+                             {% endfor %}</ul></li>
+                             {% else %}
+                             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                             {% endif %}
+                         {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="header-right">
+                        <a href="#" class="search-trigger">Search</a>
+                        <a href="/cart" class="cart-count">Cart {{cart.item_count}}</a>
+                        {{page.title }}<br>
+                        {{page.url }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+{% schema %}
+    {
+        "name" :{
+            "en"  : "Header"
+        },
+        "settings":[
+            {
+                "type" : "image_picker",
+                "id"   : "logo", 
+                "label": {
+                    "en": "Upload Your site logo"
+                }
+            }
+            ,
+            {
+                "type": "select",
+                "id"   :"textOrLogo",
+                "label": "Text or Logo which one you want to show ?",
+                "options":[
+                    {"value": "logo", "label": "Logo"},
+                    {"value": "text", "label": "Text"}
+                ]
+            }, 
+            {
+                "type" : "range", 
+                "id"    :"font_size", 
+                "label":{
+                    "en": "Header text font size"
+                },
+                "min": 14,
+                "max":45, 
+                "step":1,
+                "unit":"px",
+                "default":36
+
+            }, 
+            {
+                "type"  : "color",
+                "id"    :"text_color",
+                "label" :"Select Header font color",
+                "default": "#000"
+
+            }
+        ]
+    }
+
+{% endschema %}

@@ -1,0 +1,101 @@
+
+{%- assign collection = collections[section.settings.collection] -%}
+<div class="products-listing">
+    {% if section.settings.title != blank  %}
+        <div class="section-title text-center">
+            <h2>{{section.settings.title}}</h2>
+        </div>
+    {% endif %}
+
+    {% if section.settings.type == "carousel" %}
+        {% assign columns_text = 'carousel' %}
+            <script>
+                jQuery(document).ready(function($){
+                    $('.product-carousel-156').slick({
+                        arrows:true,
+                        dots:false,
+                        slidesToShow:3,
+                        slidesToScroll: 1,
+                        infinite:true,
+                        autoplay: true
+                    });
+                });
+            </script>
+        <div class="product-carousel-156">
+        {% else %}
+            {% assign columns_text = section.settings.columns %}
+        <div class="row">
+    {% endif %}
+        {% for product in collection.products limit: section.settings.count %}
+            {% include 'product-card' , columns: columns_text %}
+        {% endfor %}
+    </div>
+</div>
+
+
+{% schema %}
+{
+    "name": "Product Listing", 
+    "settings": [
+        {
+            "type": "text",
+            "label": "Listing Title",
+            "id" : "title",
+            "default": "Awesome Products"
+        },
+        {
+            "type": "collection",
+            "id":"collection",
+            "label": "Select Product Collection"
+        },
+        {
+            "type": "select",
+            "label": "Grid Or Carousel",
+            "id": "type",
+            "options":[
+                {
+                    "value":"grid",
+                    "label": "Grid"
+                },
+                {
+                    "value": "carousel",
+                    "label": "Carousel"
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "count",
+            "label": "Products Count", 
+            "default": "4"
+        },
+        {
+            "label":{
+                "en" : "Product Listing"
+            },
+            "id": "columns",
+            "type" : "select",
+            "options":[
+                {
+                    "value": "2",
+                    "label": "2 Columns"
+                },
+                {
+                    "value": "3",
+                    "label": "3 Columns"
+                },
+                {
+                    "value": "4",
+                    "label": "4 Columns"
+                }
+            ]
+        }
+    ],
+    "presets":[
+        {
+            "name": "Product listing",
+            "category": "Products listing"            
+        }
+    ]
+}
+{% endschema %}

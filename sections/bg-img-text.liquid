@@ -1,0 +1,74 @@
+<section class="section-padding bgwith-text">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="bgwith-text-inner" style="background-image:url({{section.settings.section_bg | img_url:'master'}})">
+                    <div class="bgwith-text-content">
+                        <h2>{{section.settings.subtitle}}</h2>
+                        <h2>{{section.settings.title}}</h2>
+                        <p>{{section.settings.desc}}</p>
+                        <a href="{{section.settings.link}}"><button>{{section.settings.linktext}}</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+{
+    "name":{
+        "en":"Background with text"
+    },
+    "settings":[
+        {
+            "type"  : "image_picker",
+            "id"    :"section_bg", 
+            "label": "Section background image"
+        },
+        {
+            "type"  : "text",
+            "id"    :"title", 
+            "label": "Section Title",
+            "default": "End Season"
+        },
+        {
+            "type"  : "text",
+            "id"    :"subtitle", 
+            "label": "Section Sub Title",
+            "default": "Sale"
+        },
+        {
+            "type"  : "textarea",
+            "id"    :"desc", 
+            "label": "Section Description",
+            "default": "Fall/ Winter 2014"
+        },
+        {
+            "type"  : "text",
+            "id"    :"linktext", 
+            "label": "Section link text",
+            "default":"More Details"
+        },
+        {
+            "type"  : "url",
+            "id"    :"link", 
+            "label": "Section url"
+        }
+    ],
+    "presets":[
+        {
+            "name":{
+                "en": "Background image with text"
+            },
+            "category":{
+                "en": "Bg with text"
+            },
+            "settings":{
+                "title": "Background section title"
+            }
+        }
+    ]
+}
+{% endschema %}
